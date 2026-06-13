@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Header() {
+    // Simulando estado para permissões - Modifique e obtenha a partir do seu Auth Context/Redux
+    const admin = true;
+
     return (
         <header className="fixed top-0 right-0 left-0 z-10">
             <div className="flex justify-between items-center p-2 bg-white border-gray-200 dark:bg-gray-900">
@@ -17,9 +20,9 @@ export default function Header() {
                             d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
                     </svg>
                     <div className="text-white me-6">
-                        <p className="mb-1 demandante">{ /* demandantes.nome */ }</p>
+                        <p className="mb-1 demandante">{ /* demandantes.nome */}</p>
                         <p className="demandante">{/* { demandantes.email } */}</p>
-                        
+
                         <p className="mb-1 hidden"><b>Nome: </b>{/* { dados.nome }*/} </p>
                         <p className="hidden"><b>Email: </b>{/* { dados.email } */}</p>
                     </div>
@@ -63,11 +66,13 @@ export default function Header() {
                                     <Link href="/colabs">Lista de profissionais</Link>
                                 </span>
                             </li>
-                            <li v-if="admin">
-                                <span className="block px-3 text-white rounded-sm  md:border-0 hover:text-yellow-200  ">
-                                    <Link href="/inserir">Inserir profissional</Link>
-                                </span>
-                            </li>
+                            {admin && (
+                                <li>
+                                    <span className="block px-3 text-white rounded-sm  md:border-0 hover:text-yellow-200  ">
+                                        <Link href="/inserir">Inserir profissional</Link>
+                                    </span>
+                                </li>
+                            )}
 
                         </ul>
                     </div>

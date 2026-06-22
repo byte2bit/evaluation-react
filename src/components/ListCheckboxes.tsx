@@ -30,15 +30,19 @@ export default function ListCheckboxes() {
         }
     };
 
+    
     return (
         <div className="w-[268]">
+            {/* equivalente ao v-if(variavel) no Vue. É um operador ternário (var ? sim : não) */}
             {isLoading ? (
                 <div className="flex justify-center items-center py-8">
                     <span>Carregando lista de colaboradores...</span>
                 </div>
             ) : (
                 <>
-                    <div className="mb-4">
+                        <div className="mb-4">
+                            {/* onChange é obrigatório em inputs para bind bidirecional, 
+                            assim como value, ou checked nesse caso*/}
                         <input
                             type="checkbox"
                             id="toggle-all"
@@ -49,8 +53,10 @@ export default function ListCheckboxes() {
                         <label htmlFor="toggle-all" className="ms-2 font-bold cursor-pointer">Todos</label>
                     </div>
 
+                        {/* for do Vue é .map no React */}
                     {colabs.map((colab, index) => (
                         <div key={index} className="line-colabs my-2">
+                            {/* checked e onChange obrigatórios */}
                             <input
                                 type="checkbox"
                                 id={`checkbox-${colab.colab}`}

@@ -5,7 +5,7 @@ import RatingBox from "@/components/RatingBox";
 
 export default function Page() {
   return (
-    <div className="flex">
+    <div className="flex text-xs">
       <div className="bg-zinc-200 -mt-4 -ms-4 me-4 p-4">
         <ListCheckboxes />
       </div>

@@ -1,7 +1,7 @@
 
 'use client'
-import ListCheckboxes from "@/components/ListCheckboxes";
-import RatingBox from "@/components/RatingBox";
+import ListCheckboxes from "@/features/listCheckBoxes/ListCheckboxes";
+import RatingBox from "@/features/homePage/components/RatingBox";
 
 export default function Page() {
   return (
